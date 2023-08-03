@@ -1,0 +1,26 @@
+---
+import AccentCard from "../AccentCard.astro";
+
+import Graduation from "../Statistics/Graduation.astro"
+import CurrentJob from "../Statistics/CurrentJob.astro"
+import LinkedInPosition from "../Statistics/LinkedInPosition.astro"
+---
+
+<div class="overflow-x-hidden">
+  <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 mx-xl-4 gx-5 gy-3">
+    <div class="col">
+      <Graduation />
+    </div>
+    <div class="col">
+      <CurrentJob />
+    </div>
+    <div class="col">
+      <AccentCard title="Test" accent="#ffbf00" icon="calendar-fill">
+        <p>Test</p>
+      </AccentCard>
+    </div>
+    <div class="col">
+      <LinkedInPosition />
+    </div>
+  </div>
+</div>

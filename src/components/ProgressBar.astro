@@ -1,0 +1,28 @@
+---
+interface Props {
+    value: number;
+    color: string;
+}
+
+const { value, color } = Astro.props;
+const rangePercentage = value+"%";
+---
+
+<div class="progress-bar">
+    <div class="progress"></div>
+</div>
+
+<style define:vars={{ rangePercentage, color }}>
+    .progress-bar{
+        height: 10px;
+        width: 100%;
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+    .progress-bar .progress{
+        height: 100%;
+        width: var(--rangePercentage);
+        background-color: var(--color);
+        border-radius: 5px 0px 0px 5px;
+    }
+</style>

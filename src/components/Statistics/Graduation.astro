@@ -1,0 +1,10 @@
+---
+import AccentCard from "../AccentCard.astro";
+import ProgressBar from "../ProgressBar.astro"
+---
+
+<AccentCard title="Graduation (days)" accent="#1494eb" icon="calendar-fill">
+  <div class="d-flex align-items-center">
+    <b class="me-2">300</b><ProgressBar color="#1494eb" value={80} />
+  </div>
+</AccentCard>

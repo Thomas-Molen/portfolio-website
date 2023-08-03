@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  accent?: string;
+  icon: string;
+}
+
+const { title, accent = "white", icon } = Astro.props;
+const iconStyle = "icon bi bi-" + icon;
+---
+
+<div class="card-container">
+  <div class="px-4 py-3 h-100 row justify-content-between">
+    <div class="col">
+      <h6 class="title">{title}</h6>
+      <slot />
+    </div>
+    <div class="col-auto d-flex justify-content-end align-items-center">
+      <i class:list={["icon", iconStyle]}></i>
+    </div>
+  </div>
+</div>
+
+<style define:vars={{ accent }}>
+  .card-container {
+    height: 100%;
+    border: 1px solid var(--card-color);
+    border-radius: 5px;
+    border-left-color: var(--accent);
+    border-left-width: 0.25rem;
+
+    background-color: var(--card-color);
+    color: var(--card-text-color);
+
+    box-shadow: 7px 7px #00000024;
+  }
+  .card-container .title {
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .card-container .icon {
+    color: lightgrey;
+    font-size: 2.5rem;
+  }
+</style>
