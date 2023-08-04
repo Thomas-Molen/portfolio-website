@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  info?: string;
+}
+
+const { title, info } = Astro.props;
+---
+
+<div class="card-container">
+  <div class="card-title">
+    <h6 class="title m-0">
+      {title}
+      {info && <sup><i class="info" data-bs-toggle="tooltip" style="cursor:pointer"  title={info}>i</i></sup>}
+  </h6>
+  </div>
+  <div class="card-body">
+    <hr class="m-0"/>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .card-container {
+    color: var(--card-text-color);
+    border-radius: 5px;
+    box-shadow: 7px 7px #00000024;
+  }
+  .card-container .card-title{
+    border-radius: 5px 5px 0 0;
+    background-color: var(--card-color);
+    padding: 10px;
+  }
+  .card-container .card-body{
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--card-color);
+  }
+</style>

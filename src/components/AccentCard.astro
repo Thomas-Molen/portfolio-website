@@ -1,18 +1,22 @@
 ---
 interface Props {
   title: string;
+  info?: string;
   accent?: string;
   icon: string;
 }
 
-const { title, accent = "white", icon } = Astro.props;
+const { title, info, accent = "white", icon } = Astro.props;
 const iconStyle = "icon bi bi-" + icon;
 ---
 
 <div class="card-container">
   <div class="px-4 py-3 h-100 row justify-content-between">
     <div class="col">
-      <h6 class="title">{title}</h6>
+      <h6 class="title">
+        {title}
+        {info && <sup><i class="info" data-bs-toggle="tooltip" style="cursor:pointer" title={info}>i</i></sup>}
+      </h6>
       <slot />
     </div>
     <div class="col-auto d-flex justify-content-end align-items-center">
@@ -41,5 +45,9 @@ const iconStyle = "icon bi bi-" + icon;
   .card-container .icon {
     color: lightgrey;
     font-size: 2.5rem;
+  }
+  .info{
+    color: var(--card-text-color);
+    text-transform: none;
   }
 </style>

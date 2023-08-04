@@ -1,10 +1,21 @@
 ---
 import AccentCard from "../AccentCard.astro";
 import ProgressBar from "../ProgressBar.astro"
+
+// TODO, change start and end with env values
+const start = new Date(new Date().setFullYear(new Date().getFullYear() - 3))
+const end = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+
+// Calculate the total milisecond range of start and end
+const range = end.getTime() - start.getTime();
+// Calculate the current progress in miliseconds
+const progress = new Date().getTime() - start.getTime();
+// Convert current progress to %
+const graduationPercentage = (progress / range) * 100;
 ---
 
 <AccentCard title="Graduation (days)" accent="#1494eb" icon="calendar-fill">
   <div class="d-flex align-items-center">
-    <b class="me-2">300</b><ProgressBar color="#1494eb" value={80} />
+    <b class="me-2">300</b><ProgressBar color="#1494eb" value={graduationPercentage} />
   </div>
 </AccentCard>
