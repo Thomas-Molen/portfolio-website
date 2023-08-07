@@ -1,10 +1,8 @@
 ---
-import AccentCard from "../AccentCard.astro";
-import ProgressBar from "../ProgressBar.astro"
+import ProgressBar from "../ProgressBar.astro";
 
-// TODO, change start and end with env values
-const start = new Date(new Date().setFullYear(new Date().getFullYear() - 3))
-const end = new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+const start = new Date(import.meta.env.SECRET_START_EDUCATION);
+const end = new Date(import.meta.env.SECRET_GRADUATION);
 
 // Calculate the total milisecond range of start and end
 const range = end.getTime() - start.getTime();
@@ -12,10 +10,15 @@ const range = end.getTime() - start.getTime();
 const progress = new Date().getTime() - start.getTime();
 // Convert current progress to %
 const graduationPercentage = (progress / range) * 100;
+
+// Calculate days left
+// 1 day = 8.64e+7 ms
+const daysLeft = Math.round((range - progress) / 8.64e7);
 ---
 
-<AccentCard title="Graduation (days)" accent="#1494eb" icon="calendar-fill">
-  <div class="d-flex align-items-center">
-    <b class="me-2">300</b><ProgressBar color="#1494eb" value={graduationPercentage} />
-  </div>
-</AccentCard>
+<div class="d-flex align-items-center">
+  <b class="me-2">{daysLeft}</b><ProgressBar
+    color="#1494eb"
+    value={graduationPercentage}
+  />
+</div>

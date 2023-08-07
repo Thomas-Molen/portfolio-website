@@ -6,14 +6,19 @@ import Graduation from "../Statistics/Graduation.astro";
 import CurrentJob from "../Statistics/CurrentJob.astro";
 import LinkedInPosition from "../Statistics/LinkedInPosition.astro";
 import HostingCosts from "../Statistics/HostingCosts";
+import ProjectLanguages from "../Statistics/ProjectLanguages";
 ---
 
-<div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 mx-xl-4 gx-5 gy-3">
+<div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 gx-5 gy-3 w-100">
   <div class="col">
-    <Graduation />
+    <AccentCard title="Graduation" accent="#1494eb" icon="calendar-fill">
+      <Graduation />
+    </AccentCard>
   </div>
   <div class="col">
-    <CurrentJob />
+    <AccentCard title="Current Job" accent="#00d021" icon="briefcase-fill">
+      <CurrentJob />
+    </AccentCard>
   </div>
   <div class="col">
     <AccentCard title="Placeholder" accent="#ffbf00" icon="calendar-fill">
@@ -21,16 +26,26 @@ import HostingCosts from "../Statistics/HostingCosts";
     </AccentCard>
   </div>
   <div class="col">
-    <LinkedInPosition />
+    <AccentCard
+      title="LinkedIn Position"
+      info="position in LinkedIn search"
+      accent="#0af5bf"
+      icon="linkedin"
+    >
+      <LinkedInPosition />
+    </AccentCard>
   </div>
 </div>
-<div class="mt-4 row mx-xl-4 gx-5 gy-3">
-  <div class="col-7">
-    <Card title="Placeholder">
-      <br />
+<div class="mt-4 row gx-5 gy-3 w-100">
+  <div class="col-md-8">
+    <Card
+      title="Project Languages"
+      info="distribution of lanugages used for the portfolio project"
+    >
+      <ProjectLanguages client:load />
     </Card>
   </div>
-  <div class="col-5">
+  <div class="col-md-4">
     <Card title="Hosting Costs" info="total cost per month">
       <HostingCosts client:load />
     </Card>

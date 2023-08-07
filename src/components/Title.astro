@@ -1,4 +1,5 @@
 ---
+import Underline from './Underline.astro';
 interface Props {
     title: string;
     description: string;
@@ -8,22 +9,13 @@ const { title, description } = Astro.props;
 ---
 
 <div class="title-container">
-    <h1 class="mb-0">{title}</h1>
+    <Underline initialWidth="90%">
+        <h1 class="mb-0"><a href="#about-me">{title}</a></h1>
+    </Underline>
     <h3 class="text-sm-end title-description">{description}</h3>
 </div>
 
 <style>
-    h1 {
-        display: inline;
-        background-image: linear-gradient(
-            to right,
-            var(--text-color),
-            var(--text-color)
-        );
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        background-size: 90% 2px;
-    }
     .title-container{
         width: max-content;
     }

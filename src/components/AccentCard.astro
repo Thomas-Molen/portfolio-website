@@ -15,7 +15,7 @@ const iconStyle = "icon bi bi-" + icon;
     <div class="col">
       <h6 class="title">
         {title}
-        {info && <sup><i class="info" data-bs-toggle="tooltip" style="cursor:pointer" title={info}>i</i></sup>}
+        {info && <sup><i class="info" style="cursor:pointer" title={info} data-tooltip-placement="top">i</i></sup>}
       </h6>
       <slot />
     </div>
@@ -26,6 +26,9 @@ const iconStyle = "icon bi bi-" + icon;
 </div>
 
 <style define:vars={{ accent }}>
+  .title{
+      font-size: 1rem;
+    }
   .card-container {
     height: 100%;
     border: 1px solid var(--card-color);
@@ -36,7 +39,7 @@ const iconStyle = "icon bi bi-" + icon;
     background-color: var(--card-color);
     color: var(--card-text-color);
 
-    box-shadow: 7px 7px #00000024;
+    box-shadow: 7px 7px var(--card-shadow);
   }
   .card-container .title {
     color: var(--accent);

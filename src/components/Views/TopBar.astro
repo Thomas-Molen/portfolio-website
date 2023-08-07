@@ -3,18 +3,17 @@ import Title from "../Title.astro";
 import Underline from "../Underline.astro";
 ---
 
-<div class="d-flex justify-content-between py-3">
+<div class="d-flex justify-content-between py-3 mx-4">
   <Title title="THOMAS VAN DER MOLEN" description="SOFTWARE DEVELOPER" />
-  <Underline initialWidth="0%">
-    <i class="bi bi-brightness-high-fill pointer theme-toggle"></i>
-  </Underline>
+  <div>
+    <!-- <Underline initialWidth="0%">
+      <i class="bi bi-brightness-high-fill pointer icon"></i>
+    </Underline> -->
+  </div>
 </div>
 
 <style>
-  .pointer {
-    cursor: pointer;
-  }
-  .theme-toggle {
+  .icon {
     font-size: 2rem;
   }
 </style>

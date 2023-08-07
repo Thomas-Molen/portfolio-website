@@ -1,18 +1,20 @@
 ---
 interface Props {
     initialWidth?: string;
+    class?: string;
 }
 
-const { initialWidth = "50%" } = Astro.props;
+const { initialWidth = "50%", class:className } = Astro.props;
 ---
 
-<div class="underline-container">
+<div class:list={["underline-container", className]}>
     <slot/>
 </div>
 
 <style define:vars={{ initialWidth }}>
     .underline-container {
         height: max-content;
+        width: max-content;
         color: var(--text-color);
         display: inline-block;
         text-decoration: none;

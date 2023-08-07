@@ -1,0 +1,100 @@
+<a
+  class="project-navigation-container px-2"
+  href="#projects"
+  id="project-navigator"
+>
+  <p class="navigation-text mb-0 me-1">PROJECTS</p>
+  <i class="bi bi-caret-down down-arrow"></i>
+</a>
+
+<style>
+  .project-navigation-container {
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    bottom: 2em;
+    right: 1em;
+
+    background-color: var(--card-color);
+    border-radius: 5px;
+    box-shadow: 7px 7px var(--card-shadow);
+
+    animation: slideInFrame 1s ease-in-out, fadeOut 1s ease-in-out 1.5s forwards;
+  }
+  .down-arrow {
+    font-size: 2rem;
+  }
+
+  @keyframes slideInFrame {
+    from {
+      transform: translateY(200%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeOut {
+    to {
+      opacity: 0.5;
+    }
+  }
+
+  .project-navigation-container:hover {
+    opacity: 1 !important;
+  }
+
+  .project-navigation-container.hidden {
+    animation: slideOutFrame 0.5s ease-in-out, hideElement 0.5s ease-in-out forwards;
+  }
+  @keyframes slideOutFrame {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(200%);
+    }
+  }
+  @keyframes hideElement {
+    to {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Function to show the delayed element
+  function showNavigator() {
+    var navigator = document.getElementById("project-navigator");
+    if (navigator) {
+      navigator.style.display = "flex";
+      navigator.addEventListener("click", hideNavigator);
+    }
+    // Immediately check scroll once, incase user is already at the window
+    hasWindowShownProjects();
+  }
+  // Create a delayed showNavigator command that triggers after 3000 ms (3s)
+  let delayedShowNavigator = setTimeout(showNavigator, 3000);
+
+  function hideNavigator() {
+    var navigator = document.getElementById("project-navigator");
+    if (navigator) navigator.classList.add("hidden");
+  }
+
+  // Check if user has scrolled to the projects area on their own
+  function hasWindowShownProjects() {
+    var target = document.getElementById("projects");
+    if (!target) return;
+    // Check if the window has been scrolled to the projects element, or within a margin of error, currently 5%
+    // 5% will be around 50px of margin
+    if (window.scrollY*1.05 >= target.offsetTop) {
+      clearTimeout(delayedShowNavigator);
+      hideNavigator();
+      // Remove scroll event listener when not required anymore
+      window.removeEventListener("scroll", hasWindowShownProjects);
+    }
+  }
+
+  // Attach the checkScroll function to the onscroll event
+  window.addEventListener("scroll", hasWindowShownProjects, { passive: true});
+</script>

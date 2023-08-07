@@ -2,6 +2,7 @@
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import "../../node_modules/react-loading-skeleton/dist/skeleton.css"
+import { Tooltips } from 'astro-tooltips';
 
 interface Props {
   title: string;
@@ -19,20 +20,20 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Tooltips interactive={false}/>
   </head>
   <body>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"></script>
     <slot />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
 <style is:global>
   :root {
     --background: #252525;
+    --about-me-background: #333539;
     --text-color: white;
     --card-color: #363232;
+    --card-shadow: #0000001f;
     --card-text-color: white;
   }
   html {
@@ -43,13 +44,32 @@ const { title } = Astro.props;
     color: var(--text-color);
     background-color: var(--background);
   }
+  .pointer {
+    cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #dedede #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--card-color);
+    border-radius: 12px;
+  }
 </style>
-<script>
-  declare var bootstrap: any;
-  var tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  );
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
-  });
-</script>

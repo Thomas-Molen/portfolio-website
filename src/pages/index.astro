@@ -1,13 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TopBar from '../components/Views/TopBar.astro';
-import Statistics from '../components/Views/Statistics.astro';
+import Layout from "../layouts/Layout.astro";
+import TopBar from "../components/Views/TopBar.astro";
+import Statistics from "../components/Views/Statistics.astro";
+import About from "../components/Views/About.astro";
+import Projects from "../components/Views/Projects.astro";
+import ProjectsNavigation from "../components/ProjectsNavigation.astro";
 ---
 
 <Layout title="Thomas van der Molen">
-	<main class="container-fluid px-4">
-		<TopBar />
-		<br />
-		<Statistics />
-	</main>
+  <main class="container-fluid p-0 w-100">
+    <TopBar />
+    <br />
+    <div class="statistics-wrapper px-xl-5 pt-xl-2 pb-xl-5">
+      <Statistics />
+      <br />
+    </div>
+    <div class="about-me-wrapper p-xl-5">
+      <About />
+    </div>
+    <div class="projects-wrapper">
+		<ProjectsNavigation />
+      <Projects />
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .statistics-wrapper {
+    background: linear-gradient(
+      var(--background) 80%,
+      var(--about-me-background)
+    );
+  }
+  .about-me-wrapper {
+    background-color: var(--about-me-background);
+  }
+  .projects-wrapper {
+    background: linear-gradient(
+      0deg,
+      var(--background) 85%,
+      var(--about-me-background)
+    );
+  }
+</style>
