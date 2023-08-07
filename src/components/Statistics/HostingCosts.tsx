@@ -1,5 +1,5 @@
 import { Chart } from "react-google-charts";
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton'
 import colors from "@utility/colors"
 
 export const data: (string | number)[][] = [
