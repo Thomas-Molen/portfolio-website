@@ -1,6 +1,10 @@
 ---
 import ProgressBar from "../ProgressBar.astro";
 
+interface Props {
+  color: string;
+}
+
 const start = new Date(import.meta.env.SECRET_START_EDUCATION);
 const end = new Date(import.meta.env.SECRET_GRADUATION);
 
@@ -14,11 +18,13 @@ const graduationPercentage = (progress / range) * 100;
 // Calculate days left
 // 1 day = 8.64e+7 ms
 const daysLeft = Math.round((range - progress) / 8.64e7);
+
+const { color } = Astro.props;
 ---
 
 <div class="d-flex align-items-center">
   <b class="me-2">{daysLeft}</b><ProgressBar
-    color="#1494eb"
+    color={color}
     value={graduationPercentage}
   />
 </div>

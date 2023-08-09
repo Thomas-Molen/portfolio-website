@@ -4,9 +4,10 @@ interface Props {
   info?: string;
   accent?: string;
   icon: string;
+  iconHref?: string
 }
 
-const { title, info, accent = "white", icon } = Astro.props;
+const { title, info, accent = "white", icon, iconHref } = Astro.props;
 const iconStyle = "icon bi bi-" + icon;
 ---
 
@@ -20,7 +21,7 @@ const iconStyle = "icon bi bi-" + icon;
       <slot />
     </div>
     <div class="col-auto d-flex justify-content-end align-items-center">
-      <i class:list={["icon", iconStyle]}></i>
+      <a href={iconHref} target="_blank"><i class:list={[(iconHref === undefined) ? "" : "link", iconStyle]}></i></a>
     </div>
   </div>
 </div>
@@ -37,7 +38,7 @@ const iconStyle = "icon bi bi-" + icon;
     border-left-width: 0.25rem;
 
     background-color: var(--card-color);
-    color: var(--card-text-color);
+    color: var(--text-color);
 
     box-shadow: 7px 7px var(--card-shadow);
   }
@@ -50,7 +51,10 @@ const iconStyle = "icon bi bi-" + icon;
     font-size: 2.5rem;
   }
   .info{
-    color: var(--card-text-color);
+    color: var(--text-color);
     text-transform: none;
+  }
+  .icon.link:hover{
+    color: var(--link-color);
   }
 </style>

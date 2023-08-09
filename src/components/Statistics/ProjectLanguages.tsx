@@ -1,6 +1,6 @@
 import { Chart } from "react-google-charts";
 import Skeleton from 'react-loading-skeleton'
-import colors from "@utility/colors"
+import {LanguageColors as colors} from "@utility/colors"
 
 
 function ProcessData(data: { [language: string]: number }): (string | number | { role: string })[][] {
@@ -18,10 +18,8 @@ function ProcessData(data: { [language: string]: number }): (string | number | {
     });
 
     // Add color map to data
-    // First get the color map and invert it to make it different from other graph
-    let invertedColors = colors.slice().reverse();
     let coloredLanguagePercentages = languagePercentages.map((item, index) =>
-        index === 0 ? [...item, { role: "style" }] : [...item, invertedColors[index - 1]]
+        index === 0 ? [...item, { role: "style" }] : [...item, colors[index - 1]]
     );
 
     return coloredLanguagePercentages

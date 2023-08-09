@@ -1,11 +1,11 @@
 import { Chart } from "react-google-charts";
 import Skeleton from 'react-loading-skeleton'
-import colors from "@utility/colors"
+import {HostingCostColors as colors} from "@utility/colors"
 
 export const data: (string | number)[][] = [
     ["Source", "Cost per Month"],
     ["Domain", 0.23],
-    ["Vercel host", 0.1],
+    ["Vercel host", 0],
     ["Azure host", 0],
     ["DevOps", 0],
 ];

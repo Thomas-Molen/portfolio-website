@@ -1,10 +1,9 @@
-export const colors: string[] = [
-    "#6f9654", "#43459d", "#1c91c0", "#e7711b", "#ff006e", "#be95c4"
+export const LanguageColors: string[] = [
+    "#086375", "#B2FF9E", "#1DD3B0", "#AFFC41", "#3C1642", 
+    "#be95c4", "#4E5755", "#D68910", "#117A65", "#707B7C"
 ]
 
-export const shuffledColors: string[] = colors
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-
-export default colors;
+export const HostingCostColors: string[] = [
+    "#2874A6", "#6C3483", "#D68910", "#117A65", "#839192", 
+    "#717D7E", "#943126", "#1E8449", "#A04000", "#566573"
+]
