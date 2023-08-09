@@ -3,22 +3,18 @@ import Skeleton from 'react-loading-skeleton'
 import colors from "@utility/colors"
 
 
-function getData(): (string | number | { role: string })[][] {
+function ProcessData(data: { [language: string]: number }): (string | number | { role: string })[][] {
     // Get language byte data
-    const languages = [
+    const languages: (string | number | { role: string })[][] = [
         ["Language", ""],
-        ["Astro", 9034],
-        ["TypeScript", 2032],
-        ["JavaScript", 172],
-        ["C#", 1],
-        ["Other", 100]
+        ...Object.keys(data).map((language) => [language, data[language]])
     ];
 
     // Convert languageByteValues to percentages
-    const totalLanguageBytes = languages.slice(1).reduce((total, [_, bytes]) => total + Number(bytes), 0)
+    const LanguageValueTotal = Object.values(data).reduce((total, value) => total + value);
     const languagePercentages = languages.map(([language, bytes], index) => {
         if (index === 0) return [language, bytes];
-        return [language, (Number(bytes) / totalLanguageBytes) * 100];
+        return [language, (Number(bytes) / LanguageValueTotal) * 100];
     });
 
     // Add color map to data
@@ -30,9 +26,8 @@ function getData(): (string | number | { role: string })[][] {
 
     return coloredLanguagePercentages
 }
-export const data = getData();
 
-export const options = {
+const options = {
     backgroundColor: "transparent",
     legend: "none",
     bar: { groupWidth: "95%" },
@@ -56,11 +51,15 @@ export const options = {
     }
 };
 
-function ProjectLanguages() {
+interface props {
+    data: ({ [language: string]: number });
+}
+function ProjectLanguages({ data }: props) {
+    const chartData = ProcessData(data);
     return (
         <Chart
             chartType="BarChart"
-            data={data}
+            data={chartData}
             options={options}
             width={"100%"}
             height={"300px"}
@@ -73,8 +72,6 @@ function ProjectLanguages() {
                     }
                 }
             ]}
-            loader={
-                <Skeleton width="100%" height="300px" baseColor="var(--card-color)" />}
         />
     );
 }
