@@ -31,7 +31,7 @@ const options = {
     backgroundColor: "transparent",
     legend: "none",
     bar: { groupWidth: "95%" },
-    chartArea: { "width": "80%", "height": "80%" },
+    chartArea: { "width": "80%", "height": "80%", "left": 100},
     hAxis: {
         textStyle: {
             color: "lightgrey"
@@ -61,7 +61,7 @@ function ProjectLanguages({ data }: props) {
             chartType="BarChart"
             data={chartData}
             options={options}
-            width={"100%"}
+            width={"99%"}
             height={"300px"}
             formatters={[
                 {

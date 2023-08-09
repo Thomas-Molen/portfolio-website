@@ -9,19 +9,21 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
 ---
 
 <div id="about-me" class="row mx-2 gy-3">
-  <div class="ms-xl-4 col-lg-4 col-xxl-3 d-grid">
-    <img
+  <div class="ms-xl-4 col-lg-4 col-xxl-3">
+      <img
       class="profile-picture mt-5"
       src="/assets/profile-picture.png"
       alt="Image of Thomas van der Molen"
       id="profile-picture"
-    />
+      />
+    <br />
     <Underline initialWidth="0%">
       <a href={tel}>
         <i class="bi bi-telephone-outbound social-icon"></i>
         <span class="social-text">{import.meta.env.PUBLIC_PHONE_NUMBER}</span>
       </a>
     </Underline>
+    <br />
     <Underline initialWidth="0%">
       <a href={mailto}>
         <i class="bi bi-envelope-at-fill social-icon"></i>

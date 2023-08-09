@@ -21,10 +21,11 @@ const rangePercentage = value + "%";
   }
   .progress-bar .progress {
     height: 100%;
-    width: 0;
+    /* width: 0; */
+    /* animation: progressAnimation 3s forwards; */
+    width: var(--rangePercentage);
     background-color: var(--color);
     border-radius: 5px 0px 0px 5px;
-    animation: progressAnimation 3s forwards;
   }
   @keyframes progressAnimation {
     to {

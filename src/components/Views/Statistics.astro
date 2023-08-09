@@ -45,14 +45,14 @@ const languageData:({[language:string]: number} | null) = await fetch(`${import.
     <div class="col-md-8">
       <Card
       title="Project Languages"
-      info="distribution of lanugages used for the portfolio project"
+      info="distribution of languages used for the portfolio project"
       >
       <ProjectLanguages data={languageData} client:load />
       </Card>
       </div>
     }
   <div class="col-md-4">
-    <Card title="Hosting Costs" info="total cost per month">
+    <Card title="Hosting Costs" info="total hosting costs per month for Portfolio project and demo projects">
       <HostingCosts client:load />
     </Card>
   </div>
