@@ -7,12 +7,23 @@ import HostingCosts from "../Statistics/HostingCosts";
 import ProjectLanguages from "../Statistics/ProjectLanguages";
 import Underline from "../Underline.astro";
 
+// Execute data fetching on the server, as to avoid exposing secrets
+// Obtain language data for project language split chart
 const languageData: { [language: string]: number } | null = await fetch(
-  `${import.meta.env.SECRET_DATA_AGGREGATE_URL}/api/RepositoryLanguages?user=${
-    import.meta.env.SECRET_REPOSITORY_USER
-  }&repo=${import.meta.env.SECRET_REPOSITORY}&code=${
-    import.meta.env.SECRET_DATA_AGGREGATE_KEY
-  }`
+  `${import.meta.env.SECRET_DATA_AGGREGATE_URL}/api/RepositoryLanguages`+
+  `?user=${import.meta.env.SECRET_REPOSITORY_USER}`+
+  `&repo=${import.meta.env.SECRET_REPOSITORY}`+
+  `&code=${import.meta.env.SECRET_DATA_AGGREGATE_KEY}`
+)
+  .then((response) => {
+    return response.json();
+  })
+  .catch((error) => null);
+
+// Obtain hosting data for hosting cost breakdown chart
+const hostingCosts: { [service: string]: number } | null = await fetch(
+  `${import.meta.env.SECRET_DATA_AGGREGATE_URL}/api/HostingCosts`+
+  `?code=${import.meta.env.SECRET_DATA_AGGREGATE_KEY}`
 )
   .then((response) => {
     return response.json();
@@ -38,7 +49,7 @@ const languageData: { [language: string]: number } | null = await fetch(
       iconHref="https://github.com/Thomas-Molen"
     >
       <Underline initialWidth="0">
-        <a href="https://vocabversus.thomasmolen.com/"><b>VocabVersus</b></a>
+        <a href="https://vocabversus.thomasmolen.com/" target="_blank"><b>VocabVersus</b></a>
       </Underline>
     </AccentCard>
   </div>
@@ -76,12 +87,16 @@ const languageData: { [language: string]: number } | null = await fetch(
       </div>
     )
   }
-  <div class="col-md-4">
-    <Card
-      title="Hosting Costs"
-      info="total hosting costs per month for Portfolio project and demo projects"
-    >
-      <HostingCosts client:load />
-    </Card>
-  </div>
+  {
+    hostingCosts !== null && (
+      <div class="col-md-4">
+        <Card
+        title="Hosting Costs"
+        info="total hosting costs per month for Portfolio and related Demo projects"
+        >
+        <HostingCosts data={hostingCosts} client:load />
+        </Card>
+        </div>
+        )
+  }
 </div>

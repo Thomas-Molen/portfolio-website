@@ -1,0 +1,21 @@
+---
+import Underline from "../Underline.astro";
+
+---
+
+<div class="footer py-2 d-flex align-items-center justify-content-center">
+    Built by Thomas van der Molen and completely&nbsp;<Underline initialWidth="0"><a href="https://github.com/Thomas-Molen/Portfolio" target="_blank">Open Source!</a></Underline>&nbsp;Making technology accessible to all
+</div>
+
+<style>
+    .footer {
+        background-color: rgb(0, 0, 0);
+        color: var(--vv-white);
+    }
+
+    .author-info {
+        position: relative;
+        left: -3px;
+        cursor: pointer;
+    }
+</style>

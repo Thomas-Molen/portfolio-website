@@ -2,12 +2,14 @@ import { Chart } from "react-google-charts";
 import Skeleton from 'react-loading-skeleton'
 import {LanguageColors as colors} from "@utility/colors"
 
-
-function ProcessData(data: { [language: string]: number }): (string | number | { role: string })[][] {
-    // Get language byte data
+type LanguageData = { [language: string]: number };
+function ProcessData(data: LanguageData): (string | number | { role: string })[][] {
+    // Parse language byte data to chart structure
     const languages: (string | number | { role: string })[][] = [
         ["Language", ""],
-        ...Object.keys(data).map((language) => [language, data[language]])
+        ...Object.keys(data).map((language) => [language, data[language]]),
+        // Anything under ~100 bytes is not included, so add it as a static value for context
+        ["Other", 100]
     ];
 
     // Convert languageByteValues to percentages
@@ -50,7 +52,7 @@ const options = {
 };
 
 interface props {
-    data: ({ [language: string]: number });
+    data: LanguageData;
 }
 function ProjectLanguages({ data }: props) {
     const chartData = ProcessData(data);
@@ -70,6 +72,8 @@ function ProjectLanguages({ data }: props) {
                     }
                 }
             ]}
+            loader={
+                <Skeleton width="99%" height="300px" baseColor="var(--card-color)" />}
         />
     );
 }
