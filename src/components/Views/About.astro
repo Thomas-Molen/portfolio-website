@@ -11,7 +11,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
 <div id="about-me" class="row mx-2 gy-3">
   <div class="ms-xl-4 col-lg-4 col-xxl-3">
       <img
-      class="profile-picture mt-5"
+      class="profile-picture card-shadow mt-5"
       src="/assets/profile-picture.png"
       alt="Image of Thomas van der Molen"
       id="profile-picture"
@@ -65,7 +65,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="Bas Trucks"
             title="Bas Trucks"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -76,7 +76,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="Stuurmen"
             title="Stuurmen"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -87,7 +87,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="Author-e"
             title="Author-e"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -98,7 +98,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="Jugo"
             title="Jugo"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -109,7 +109,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="MK Educatie"
             title="MK Educatie"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -120,7 +120,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="PodoPrinter"
             title="PodoPrinter"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -131,7 +131,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             alt="KLantfocus"
             title="KLantfocus"
             data-tooltip-placement="top"
-            class="company-image"
+            class="company-image card-shadow"
           />
         </a>
       </div>
@@ -161,8 +161,6 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
     width: 100%;
     max-width: 140px;
     transition: transform 1s, box-shadow 1.5s;
-
-    box-shadow: 7px 7px var(--card-shadow);
   }
   .company-image:hover {
     transform: scale(1.2);
