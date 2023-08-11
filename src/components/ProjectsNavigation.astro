@@ -73,8 +73,8 @@
     // Immediately check scroll once, incase user is already at the window
     hasWindowShownProjects();
   }
-  // Create a delayed showNavigator command that triggers after 3000 ms (3s)
-  let delayedShowNavigator = setTimeout(showNavigator, 3000);
+  // Create a delayed showNavigator command that triggers after 3s (2500ms delay + 500ms animation)
+  let delayedShowNavigator = setTimeout(showNavigator, 2500);
 
   function hideNavigator() {
     var navigator = document.getElementById("project-navigator");

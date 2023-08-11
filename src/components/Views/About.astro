@@ -2,7 +2,7 @@
 import Underline from "../Underline.astro";
 const millisecondsInYear = 3.15576e10;
 const age = Math.floor(
-  (new Date().getTime() - new Date(import.meta.env.PRIVATE_BIRTH_DATE).getTime()) / millisecondsInYear
+  (new Date().getTime() - new Date(import.meta.env.SECRET_BIRTH_DATE).getTime()) / millisecondsInYear
 );
 const mailto = "mailto:"+import.meta.env.PUBLIC_EMAIL_ADDRESS ?? "";
 const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "";
@@ -86,6 +86,17 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
             src="/assets/author-e.png"
             alt="Author-e"
             title="Author-e"
+            data-tooltip-placement="top"
+            class="company-image"
+          />
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://jugo.nl/" target="_blank">
+          <img
+            src="/assets/jugo.png"
+            alt="Jugo"
+            title="Jugo"
             data-tooltip-placement="top"
             class="company-image"
           />

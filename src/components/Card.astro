@@ -1,18 +1,29 @@
 ---
+import type About from './Views/About.astro';
 interface Props {
   title: string;
   info?: string;
 }
 
 const { title, info } = Astro.props;
+
+const infoSpanAttributes = {
+  ...(info && {
+    "style": "cursor:pointer",
+    "data-tooltip-placement": "top",
+    "title": info
+  })
+}
 ---
 
 <div class="card-container">
   <div class="card-title">
-    <h4 class="title m-0">
-      {title}
-      {info && <sup><i class="info" style="cursor:pointer" title={info} data-tooltip-placement="top">i</i></sup>}
-  </h4>
+    <p class="title m-0">
+      <span { ...infoSpanAttributes}>
+        {title}
+        {info && <sup><i>i</i></sup>}
+      </span>
+    </p>
   </div>
   <div class="card-body">
     <hr class="m-0"/>
@@ -23,6 +34,7 @@ const { title, info } = Astro.props;
 <style>
   .title{
     font-size: 1rem;
+    font-weight: bold;
   }
   .card-container {
     color: var(--text-color);

@@ -12,12 +12,15 @@ const { title, description } = Astro.props;
     <Underline initialWidth="90%">
         <h1 class="mb-0"><a href="#about-me">{title}</a></h1>
     </Underline>
-    <h3 class="text-sm-end title-description">{description}</h3>
+    <h2 class="text-sm-end title-description">{description}</h2>
 </div>
 
 <style>
     .title-container{
         width: max-content;
+    }
+    .title-description{
+        font-size: 1.75rem;
     }
     @media only screen and (min-width: 400px)
     {
