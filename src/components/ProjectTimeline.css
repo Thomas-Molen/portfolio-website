@@ -1,0 +1,14 @@
+.svg-container { 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+	height: 100%;
+    width: 100%;
+}
+
+.svg-container svg { 
+	height: 100%;
+    width: 100%;
+}
+svg{
+    overflow: initial;
+}

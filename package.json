@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
+    "@gitgraph/core": "^1.5.0",
+    "@sugarypineapple/gitgraph-react": "^1.6.2",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "astro": "^2.10.0",
