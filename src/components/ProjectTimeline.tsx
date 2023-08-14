@@ -1,10 +1,8 @@
-import Skeleton from 'react-loading-skeleton'
 import { Gitgraph, templateExtend, TemplateName, Mode, MergeStyle } from '@sugarypineapple/gitgraph-react'
 import './ProjectTimeline.css'
 import type { Commit } from '@gitgraph/core';
 import type { ReactSvgElement } from '@sugarypineapple/gitgraph-react/lib/types';
 import { ProjectColors } from '@utility/colors';
-import { useState } from 'react';
 const defaultProject = "VocabVersus"
 const template = templateExtend(TemplateName.Metro, {
     branch: { label: { display: false }, spacing: 30, mergeStyle: MergeStyle.Bezier },
@@ -19,9 +17,11 @@ const template = templateExtend(TemplateName.Metro, {
     },
 });
 
-function ProjectTimeline() {
-    const [selectedProject, setSelectedProject] = useState<string>(defaultProject);
-
+interface props {
+    currentProject: string;
+    onSetProject: (project: string | undefined) => void;
+}
+function ProjectTimeline({currentProject, onSetProject}: props) {
     const empty = function () {
         return (
             <></>
@@ -35,23 +35,19 @@ function ProjectTimeline() {
         );
     }
     function selector(commit: Commit<ReactSvgElement>) {
-        if ((commit.tags?.[0].name ?? defaultProject) == selectedProject) {
+        if ((commit.tags?.[0].name ?? defaultProject) == currentProject) {
             // selected project
             return baseCircle(commit);
         }
         else {
             // not selected project
             return (
-                <g className="pointer" onClick={() => selectorClick(commit)}>
+                <g className="pointer" onClick={() => onSetProject(commit.tags?.[0].name)}>
                     <circle r={14} cx={14} cy={14} stroke={commit.style.dot.color} strokeWidth="5" fill="var(--background)" />
                 </g>
             );
         }
     };
-
-    const selectorClick = function (commit: Commit<ReactSvgElement>) {
-        setSelectedProject(() => commit.tags?.[0].name ?? defaultProject);
-    }
 
     return (
         <div id="graph-container" className="svg-container">
@@ -61,7 +57,7 @@ function ProjectTimeline() {
                     template: template,
                     branchLabelOnEveryCommit: false,
                 }
-            } key={selectedProject}>
+            } key={currentProject}>
                 {(gitgraph) => {
                     const master = gitgraph.branch("master");
                     master.commit({
@@ -76,7 +72,7 @@ function ProjectTimeline() {
                         renderDot: empty
                     })
                     // BasWorld project
-                    const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit), onClick: selectorClick }).tag("BAS World");
+                    const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit) }).tag("BAS World");
 
                     master.commit({
                         subject: "Semester 3",
