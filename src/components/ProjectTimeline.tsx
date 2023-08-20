@@ -3,6 +3,8 @@ import './ProjectTimeline.css'
 import type { Commit } from '@gitgraph/core';
 import type { ReactSvgElement } from '@sugarypineapple/gitgraph-react/lib/types';
 import { ProjectColors } from '@utility/colors';
+import { Projects as _projects } from '@utility/projects'
+
 const defaultProject = "VocabVersus"
 const template = templateExtend(TemplateName.Metro, {
     branch: { label: { display: false }, spacing: 30, mergeStyle: MergeStyle.Bezier },
@@ -21,7 +23,7 @@ interface props {
     currentProject: string;
     onSetProject: (project: string | undefined) => void;
 }
-function ProjectTimeline({currentProject, onSetProject}: props) {
+function ProjectTimeline({ currentProject, onSetProject }: props) {
     const empty = function () {
         return (
             <></>
@@ -72,7 +74,7 @@ function ProjectTimeline({currentProject, onSetProject}: props) {
                         renderDot: empty
                     })
                     // BasWorld project
-                    const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit) }).tag("BAS World");
+                    const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit) }).tag(_projects.BASWorld);
 
                     master.commit({
                         subject: "Semester 3",
@@ -82,9 +84,9 @@ function ProjectTimeline({currentProject, onSetProject}: props) {
                     const Stuurmen = master.branch("Stuurmen");
                     master.merge({ branch: BASWorld, commitOptions: { renderMessage: empty, renderDot: empty } });
                     // WebAdventure project
-                    WebAdventure.commit({ renderDot: commit => selector(commit) }).tag("WebAdventure");
+                    WebAdventure.commit({ renderDot: commit => selector(commit) }).tag(_projects.WebAdventure);
                     // Stuurmen project
-                    Stuurmen.commit({ renderDot: commit => selector(commit) }).tag("Stuurmen");
+                    Stuurmen.commit({ renderDot: commit => selector(commit) }).tag(_projects.Stuurmen);
 
                     // 2022
                     master.commit({ renderDot: baseCircle }).tag("2022")
@@ -93,14 +95,14 @@ function ProjectTimeline({currentProject, onSetProject}: props) {
                     master.commit({ subject: "Semester 4", renderDot: empty })
                     const Jugo = master.branch("Jugo");
                     // Jugo project
-                    Jugo.commit({ renderDot: commit => selector(commit) }).tag("Jugo");
+                    Jugo.commit({ renderDot: commit => selector(commit) }).tag(_projects.Jugo);
                     master.merge({ branch: Jugo, commitOptions: { renderMessage: empty, renderDot: empty } });
                     master.commit({ subject: "Semester 5", renderDot: empty })
                     const Authore = master.branch("Author-e");
                     // Author-e Internship project
-                    Authore.commit({ renderDot: commit => selector(commit) }).tag("Author-e Internship");
+                    Authore.commit({ renderDot: commit => selector(commit) }).tag(_projects.AuthoreInternship);
                     // Author-e Job project
-                    Authore.commit({ renderDot: commit => selector(commit) }).tag("Author-e Job");
+                    Authore.commit({ renderDot: commit => selector(commit) }).tag(_projects.AuthoreJob);
 
                     //2023
                     master.commit({ renderDot: baseCircle }).tag("2023");
@@ -112,12 +114,21 @@ function ProjectTimeline({currentProject, onSetProject}: props) {
                     const VocabVersus = WebAdventure.branch("VocabVersus");
                     const PodoPrinter = master.branch("PodoPrinter");
                     // PodoPrinter project
-                    PodoPrinter.commit({ renderDot: commit => selector(commit) }).tag("PodoPrinter");
+                    PodoPrinter.commit({ renderDot: commit => selector(commit) }).tag(_projects.PodoPrinter);
                     // VocabVersus project
-                    VocabVersus.commit({ renderDot: commit => selector(commit) }).tag("VocabVersus");
+                    VocabVersus.commit({ renderDot: commit => selector(commit) }).tag(_projects.VocabVersus);
                     master.merge({ branch: VocabVersus, commitOptions: { renderMessage: empty, renderDot: empty } });
                     master.merge({ branch: PodoPrinter, commitOptions: { renderMessage: empty, renderDot: empty } });
 
+                    master.commit({ subject: "Vacation Semester6-7", renderDot: empty })
+                    
+                    const Portfolio = master.branch("Portfolio");
+                    Portfolio.commit({ renderDot: commit => selector(commit) }).tag(_projects.Portfolio);
+
+                    Portfolio.commit({
+                        subject: "Ongoing",
+                        renderDot: empty
+                    });
                     Authore.commit({
                         subject: "Ongoing",
                         renderDot: empty
