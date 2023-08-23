@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react'
 import { Gitgraph, templateExtend, TemplateName, Mode, MergeStyle, Orientation } from '@sugarypineapple/gitgraph-react'
 import './ProjectTimeline.css'
 import type { Commit } from '@gitgraph/core';
 import type { ReactSvgElement } from '@sugarypineapple/gitgraph-react/lib/types';
 import { ProjectColors } from '@utility/colors';
 import { Projects as _projects } from '@utility/projects'
+import Skeleton from 'react-loading-skeleton'
 
 const defaultProject = "VocabVersus"
 const template = templateExtend(TemplateName.Metro, {
@@ -155,13 +157,23 @@ interface projectTimelineProps {
     onSetProject: (project: string | undefined) => void;
 }
 function ProjectTimeline({ selectedProject, onSetProject }: projectTimelineProps) {
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
+
     return (
         <div id="graph-container" className="svg-container">
-            <div className="graph" style={{ zIndex: "0" }}>
-                <Graph selectedProject={selectedProject} onSetProject={onSetProject} placeholder />
-            </div>
-            <div className="graph" style={{ zIndex: "1" }}>
-                <Graph selectedProject={selectedProject} onSetProject={onSetProject} />
+            {isLoading && (
+                <Skeleton width="400px" height="800px" baseColor="transparent" />
+            )}
+            <div className={`${isLoading && "d-none"}`}>
+                <div className="graph" style={{ zIndex: "0" }}>
+                    <Graph selectedProject={selectedProject} onSetProject={onSetProject} placeholder />
+                </div>
+                <div className="graph" style={{ zIndex: "1" }}>
+                    <Graph selectedProject={selectedProject} onSetProject={onSetProject} />
+                </div>
             </div>
         </div>
     );

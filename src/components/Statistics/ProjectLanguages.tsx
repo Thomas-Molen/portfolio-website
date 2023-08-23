@@ -73,7 +73,7 @@ function ProjectLanguages({ data }: props) {
                 }
             ]}
             loader={
-                <Skeleton width="99%" height="300px" baseColor="var(--card-color)" />}
+                <Skeleton width="99%" height="300px" baseColor="transparent" />}
         />
     );
 }

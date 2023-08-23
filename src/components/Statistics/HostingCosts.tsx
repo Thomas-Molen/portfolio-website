@@ -77,7 +77,7 @@ function HostingCosts({ data }: props) {
                             }
                         ]}
                         loader={
-                            <Skeleton width="100%" height="300px" baseColor="var(--card-color)" />}
+                            <Skeleton width="100%" height="300px" baseColor="transparent" />}
                     />
                 </div>
             </div>
