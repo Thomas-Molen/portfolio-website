@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProjectTimeline from "../ProjectTimeline";
 import { Projects as _projects } from "@utility/projects";
+import ProjectDetails from "../ProjectDetails";
 
 function Projects() {
     const defaultProject: string = _projects.VocabVersus;
@@ -33,11 +34,11 @@ function Projects() {
         <div id="projects" className="container-fluid py-5" style={{ height: "100vh" }}>
             <div className="row h-100">
 
-                <div className="col-12 offset-lg-1 col-lg-6 col-xl-7">
-                    {currentProject}
+                <div className="col-12 offset-lg-1 col-lg-6 col-xl-6">
+                    <ProjectDetails project={currentProject} onChangeProject={(project) => setProject(project ?? defaultProject)}/>
                 </div>
-                <div className="col-lg-5 col-xl-4 h-100 d-none d-lg-block">
-                    <ProjectTimeline currentProject={currentProject} onSetProject={(project) => setProject(project ?? defaultProject)} />
+                <div className="col-lg-5 offset-xl-1 col-xl-4 h-100 d-none d-lg-block">
+                    <ProjectTimeline selectedProject={currentProject} onSetProject={(project) => setProject(project ?? defaultProject)} />
                 </div>
             </div>
         </div>

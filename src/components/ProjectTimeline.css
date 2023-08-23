@@ -3,8 +3,14 @@
     padding-bottom: 2rem;
 	height: 100%;
     width: 100%;
+    position: relative;
 }
-
+.graph {
+    position: absolute;
+     /* Set a static graph size to ensure both the interactive and static (fallback) graphs do not drift apart  */
+    height: 800px;
+}
+/* Specific svg configuration to fix scaling of gitgraph */
 .svg-container svg { 
 	height: 100%;
     width: 100%;

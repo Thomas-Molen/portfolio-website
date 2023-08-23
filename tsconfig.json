@@ -7,7 +7,8 @@
     "baseUrl": ".",
     "paths": {
       "@modules/*": ["node_modules/*"],
-      "@utility/*": ["src/utility/*"]
+      "@utility/*": ["src/utility/*"],
+      "@projects/*": ["src/components/Projects/*"]
     }
   }
 }
