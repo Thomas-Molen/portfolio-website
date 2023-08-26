@@ -58,7 +58,7 @@ interface props {
 function HostingCosts({ data }: props) {
     const chartData = ProcessData(data);
     return (
-        <div className="row gx-0">
+        <div className="row gx-0" title="test-title">
             <div className="col-lg-7">
                 <div className="mx-1">
                     <Chart
