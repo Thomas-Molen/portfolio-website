@@ -1,12 +1,13 @@
 export enum Projects {
     BASWorld = "BAS World",
-    WebAdventure = "WebAdventure",
+    GameEninge = "Game Engine",
+    WebAdventure = "Web Adventure",
     Stuurmen = "Stuurmen",
     Jugo = "Jugo",
     AuthoreInternship = "Author-e Internship",
     AuthoreJob = "Author-e Job",
     PodoPrinter = "PodoPrinter",
-    VocabVersus = "VocabVersus",
+    VocabVersus = "Vocab Versus",
     Portfolio = "Portfolio",
 }
 

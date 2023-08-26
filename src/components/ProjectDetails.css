@@ -1,11 +1,24 @@
-.project-info-navigation-container{
+
+.project-details-container {
+    height: 100%;
+    min-height: 750px;
+}
+/* @media (min-width: 992px) {
+    .project-details-container {
+        height: 90%
+    }
+} */
+
+.project-info-navigation-container {
     width: min-content;
 }
-.navigation-icon{
+
+.navigation-icon {
     font-size: 2rem;
     color: grey;
 }
-.navigation-icon:hover{
+
+.navigation-icon:hover {
     color: white;
     cursor: pointer;
 }
@@ -21,12 +34,15 @@
     background-color: grey;
     margin-left: 0.3rem;
 }
+
 .project-info-border:nth-child(1) {
     height: 80%;
 }
+
 .project-info-border:nth-child(2) {
     height: 90%;
 }
+
 .project-info-border:nth-child(3) {
     height: 100%;
 }

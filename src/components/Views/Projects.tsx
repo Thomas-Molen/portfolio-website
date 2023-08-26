@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import ProjectTimeline from "../ProjectTimeline";
 import { Projects as _projects } from "@utility/projects";
 import ProjectDetails from "../ProjectDetails";
+import Skeleton from "react-loading-skeleton";
+import "./Projects.css"
 
 function Projects() {
     const defaultProject: string = _projects.VocabVersus;
     const [currentProject, setCurrentProject] = useState(defaultProject);
+    const [obtainingQueryProject, setObtainingQueryProject] = useState(true);
 
     const setProject = (project: string) => {
         setCurrentProject(project);
@@ -28,14 +31,18 @@ function Projects() {
             // Set project from query parameter or current local value (should be defaultProject for all modern browsers)
             setProject(decodeURI(queryProject ?? currentProject));
         }
-      }, []);
+        setObtainingQueryProject(false);
+    }, []);
 
     return (
-        <div id="projects" className="container-fluid py-5" style={{ height: "100vh" }}>
+        <div id="projects" className="container-fluid py-5">
             <div className="row h-100">
-
-                <div className="col-12 offset-lg-1 col-lg-6 col-xl-6">
-                    <ProjectDetails project={currentProject} onChangeProject={(project) => setProject(project ?? defaultProject)}/>
+                <div className="d-flex align-items-center col-12 offset-lg-1 col-lg-6 col-xl-6">
+                    {obtainingQueryProject ?
+                        <Skeleton width="100%" height="100%" baseColor="transparent" containerClassName="project-skeleton" />
+                        :
+                        <ProjectDetails project={currentProject} onChangeProject={(project) => setProject(project ?? defaultProject)} />
+                    }
                 </div>
                 <div className="col-lg-5 offset-xl-1 col-xl-4 h-100 d-none d-lg-block">
                     <ProjectTimeline selectedProject={currentProject} onSetProject={(project) => setProject(project ?? defaultProject)} />

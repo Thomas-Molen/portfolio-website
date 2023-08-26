@@ -34,9 +34,10 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
   <div class="col-lg-8 col-xl-7">
     <div class="d-flex justify-content-between align-items-end">
       <h2 class="title">About Me</h2>
-      <a href="files/cv.pdf" download="CV_ThomasVanDerMolen" class="mb-1"
-        ><i class="bi bi-download me-1"></i>download my cv</a
-      >
+      <Underline initialWidth="0">
+        <a href="files/cv.pdf" download="CV_ThomasVanDerMolen" class="mb-1">
+        <i class="bi bi-download me-1"></i>download my cv</a>
+      </Underline>
     </div>
     <hr class="mt-0" />
     <div class="about-me-text">
@@ -57,11 +58,11 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
     </div>
     <h3>Some companies I have worked with</h3>
     <hr class="mt-0" />
-    <div class="row row-cols-3 row-cols-sm-6 gy-3">
+    <div class="row row-cols-3 row-cols-sm-6 row-cols-xxl-8 gy-3">
       <div class="col">
         <a href="https://www.basworld.com/" target="_blank">
           <img
-            src="/assets/bas-trucks.png"
+            src="/assets/companies/bas-trucks.png"
             alt="Bas Trucks"
             title="Bas Trucks"
             data-tooltip-placement="top"
@@ -72,7 +73,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://stuur.men/" target="_blank">
           <img
-            src="/assets/stuurmen.png"
+            src="/assets/companies/stuurmen.png"
             alt="Stuurmen"
             title="Stuurmen"
             data-tooltip-placement="top"
@@ -83,7 +84,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://www.authore.com/default.html" target="_blank">
           <img
-            src="/assets/author-e.png"
+            src="/assets/companies/author-e.png"
             alt="Author-e"
             title="Author-e"
             data-tooltip-placement="top"
@@ -94,7 +95,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://jugo.nl/" target="_blank">
           <img
-            src="/assets/jugo.png"
+            src="/assets/companies/jugo.png"
             alt="Jugo"
             title="Jugo"
             data-tooltip-placement="top"
@@ -105,7 +106,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://mkeducatie.nl/" target="_blank">
           <img
-            src="/assets/mk-educatie.png"
+            src="/assets/companies/mk-educatie.png"
             alt="MK Educatie"
             title="MK Educatie"
             data-tooltip-placement="top"
@@ -116,7 +117,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://podoprinter.com/" target="_blank">
           <img
-            src="/assets/podoprinter.png"
+            src="/assets/companies/podoprinter.png"
             alt="PodoPrinter"
             title="PodoPrinter"
             data-tooltip-placement="top"
@@ -127,7 +128,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <div class="col">
         <a href="https://www.klantfocus.nu/" target="_blank">
           <img
-            src="/assets/klantfocus.png"
+            src="/assets/companies/klantfocus.png"
             alt="KLantfocus"
             title="KLantfocus"
             data-tooltip-placement="top"
@@ -159,11 +160,18 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
   .company-image {
     aspect-ratio: 1/1;
     width: 100%;
-    max-width: 140px;
+    max-width: 100px;
     transition: transform 1s, box-shadow 1.5s;
   }
   .company-image:hover {
     transform: scale(1.2);
     box-shadow: none;
+  }
+  /* custom bootstrap row-col distribution on large displays for companies list, as bootstrap only does <7 */
+  @media (min-width: 1400px) {
+    .row-cols-xxl-8 > * {
+      flex: 0 0 auto;
+      width: 12.5%;
+    }
   }
 </style>

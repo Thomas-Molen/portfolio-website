@@ -85,6 +85,10 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                 })
                 // BasWorld project
                 const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit) }).tag(_projects.BASWorld);
+                const GameEngine = master.branch("Game Engine").commit({ renderDot: commit => selector(commit) }).tag(_projects.GameEninge);
+                // Sugary Engine project
+                master.merge({ branch: BASWorld, commitOptions: { renderMessage: empty, renderDot: empty } });
+                master.merge({ branch: GameEngine, commitOptions: { renderMessage: empty, renderDot: empty } });
 
                 master.commit({
                     subject: "Semester 3",
@@ -92,7 +96,6 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                 })
                 const WebAdventure = master.branch("WebAdventure");
                 const Stuurmen = master.branch("Stuurmen");
-                master.merge({ branch: BASWorld, commitOptions: { renderMessage: empty, renderDot: empty } });
                 // WebAdventure project
                 WebAdventure.commit({ renderDot: commit => selector(commit) }).tag(_projects.WebAdventure);
                 // Stuurmen project

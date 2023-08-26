@@ -2,11 +2,38 @@ import { Projects as _projects, PreviousProject, NextProject } from '@utility/pr
 import "./ProjectDetails.css"
 import VocabVersus from '@projects/VocabVersus';
 import { useEffect, useState } from 'react';
+import Portfolio from '@projects/Portfolio';
+import PodoPrinter from '@projects/PodoPrinter';
+import AuthoreJob from '@projects/AuthoreJob';
+import AuthoreInternship from '@projects/AuthoreInternship';
+import Jugo from '@projects/Jugo';
+import Stuurmen from '@projects/Stuurmen';
+import WebAdventure from '@projects/WebAdventure';
+import GameEninge from '@projects/GameEngine';
+import BASWorld from '@projects/BASWorld';
 
 function Details(project: string) {
     switch (project) {
+        case _projects.Portfolio:
+            return <Portfolio />;
         case _projects.VocabVersus:
             return <VocabVersus />;
+        case _projects.PodoPrinter:
+            return <PodoPrinter />;
+        case _projects.AuthoreJob:
+            return <AuthoreJob />;
+        case _projects.AuthoreInternship:
+            return <AuthoreInternship />;
+        case _projects.Jugo:
+            return <Jugo />;
+        case _projects.Stuurmen:
+            return <Stuurmen />;
+        case _projects.WebAdventure:
+            return <WebAdventure />;
+        case _projects.GameEninge:
+            return <GameEninge />;
+        case _projects.BASWorld:
+            return <BASWorld />;
         default:
             return (<></>);
     }
@@ -26,7 +53,7 @@ function ProjectDetails({ project, onChangeProject }: props) {
     }, [project]);
 
     return (
-        <div className="h-100 py-5 d-flex align-items-center">
+        <div className="w-100 py-5 d-flex align-items-center project-details-container">
             <div className="project-info-navigation-container">
                 <i className={`bi bi-chevron-up navigation-icon ${nextProject ? "" : "invisible"}`} onClick={() => nextProject ? onChangeProject(nextProject) : null}></i>
                 <i className={`bi bi-chevron-down navigation-icon ${previousProject ? "" : "invisible"}`} onClick={() => previousProject ? onChangeProject(previousProject) : null}></i>
@@ -38,8 +65,6 @@ function ProjectDetails({ project, onChangeProject }: props) {
             </div>
             <div className="project-info-container">
                 <div className="p-3 pt-5">
-                    <h3>{project}</h3>
-                    <hr />
                     {Details(project)}
                 </div>
             </div>
