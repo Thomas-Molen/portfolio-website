@@ -8,7 +8,7 @@ const mailto = "mailto:"+import.meta.env.PUBLIC_EMAIL_ADDRESS ?? "";
 const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "";
 ---
 
-<div id="about-me" class="row mx-2 gy-3">
+<div id="about-me" class="row gy-3">
   <div class="ms-xl-4 col-lg-4 col-xxl-3">
       <img
       class="profile-picture card-shadow mt-5"
@@ -30,6 +30,13 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
         <span class="social-text">{import.meta.env.PUBLIC_EMAIL_ADDRESS}</span>
       </a>
     </Underline>
+    <br />
+    <Underline initialWidth="0%">
+      <a href="https://www.linkedin.com/in/thomas-van-der-molen-6427a7181/" target="_blank">
+        <i class="bi bi-linkedin social-icon"></i>
+        <span class="social-text">LinkedIn</span>
+      </a>
+    </Underline>
   </div>
   <div class="col-lg-8 col-xl-7">
     <div class="d-flex justify-content-between align-items-end">
@@ -46,7 +53,7 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
         <a href="https://fontys.edu/" target="_blank">Fontys University of Applied Sciences</a>, where I am studying for a double mayor in <b>Software Engineering</b> & <b>Artificial Inteligence</b>.
       </p>
       <p>
-        Throughout recent years, I have gained valuable hands-on experience collaborating with small and largebusinesses alike.<br />
+        Throughout recent years, I have gained valuable hands-on experience collaborating with small and large businesses alike.<br />
         This journey has allowed me to successfully investigate and execute projects in a large variety of domains,
         together with other like-minded enthousiastic people.
       </p>

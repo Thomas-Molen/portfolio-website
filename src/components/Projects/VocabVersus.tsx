@@ -12,7 +12,7 @@ function VocabVersus() {
                 </Underline>
             </div>
             <hr className="my-0" />
-            <div className="my-1 mb-2 row row-cols-auto gx-1 justify-content-end">
+            <div className="my-1 mb-2 row row-cols-auto gx-1">
                 <div className="col">
                     <Technology image="dot-net.png" alt=".NET" className="technology-image" />
                 </div>
