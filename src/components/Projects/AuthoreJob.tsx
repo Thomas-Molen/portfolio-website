@@ -1,3 +1,4 @@
+import Technology from "../Technology";
 import Underline from "../Underline"
 
 function AuthoreJob() {
@@ -7,6 +8,17 @@ function AuthoreJob() {
                 <h3>Author-e Job</h3>
             </div>
             <hr className="my-0" />
+            <div className="my-1 mb-2 row row-cols-auto gx-1">
+                <div className="col">
+                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
+                </div>
+                <div className="col">
+                    <Technology image="blazor.png" alt="Blazor" className="technology-image" />
+                </div>
+                <span className="note">
+                    *Technology info limited due to Non-Disclosure Agreements.
+                </span>
+            </div>
             <p>
             </p>
         </>

@@ -1,3 +1,4 @@
+import Technology from "../Technology";
 import Underline from "../Underline"
 
 function GameEninge() {
@@ -10,6 +11,20 @@ function GameEninge() {
                 </Underline>
             </div>
             <hr className="my-0" />
+            <div className="my-1 mb-2 row row-cols-auto gx-1">
+                <div className="col">
+                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
+                </div>
+                <div className="col">
+                    <Technology image="mono-game.png" alt="MonoGame" className="technology-image" />
+                </div>
+                <div className="col">
+                    <Technology image="laravel.png" alt="Laravel" className="technology-image" />
+                </div>
+                <div className="col">
+                    <Technology image="mysql.png" alt="MySQL" className="technology-image" />
+                </div>
+            </div>
             <p>
             </p>
         </>

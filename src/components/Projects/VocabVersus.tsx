@@ -23,16 +23,19 @@ function VocabVersus() {
                     <Technology image="react.png" alt="React" className="technology-image" />
                 </div>
                 <div className="col">
+                    <Technology image="vite.png" alt="Vite" className="technology-image" />
+                </div>
+                <div className="col">
                     <Technology image="lucene.png" alt="Lucene" className="technology-image" />
                 </div>
                 <div className="col">
                     <Technology image="signal-r.png" alt="SignalR" className="technology-image" />
                 </div>
                 <div className="col">
-                    <Technology image="vercel.png" alt="Vercel" className="technology-image" />
+                    <Technology image="azure.png" alt="Azure" className="technology-image" />
                 </div>
                 <div className="col">
-                    <Technology image="azure.png" alt="Azure" className="technology-image" />
+                    <Technology image="vercel.png" alt="Vercel" className="technology-image" />
                 </div>
                 <div className="col">
                     <Technology image="docker.png" alt="Docker" className="technology-image" />
