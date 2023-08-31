@@ -4,13 +4,12 @@ import VocabVersus from '@projects/VocabVersus';
 import { useEffect, useState } from 'react';
 import Portfolio from '@projects/Portfolio';
 import PodoPrinter from '@projects/PodoPrinter';
-import AuthoreJob from '@projects/AuthoreJob';
-import AuthoreInternship from '@projects/AuthoreInternship';
 import Jugo from '@projects/Jugo';
 import Stuurmen from '@projects/Stuurmen';
 import WebAdventure from '@projects/WebAdventure';
 import GameEninge from '@projects/GameEngine';
 import BASWorld from '@projects/BASWorld';
+import Authore from '@projects/Authore';
 
 function Details(project: string) {
     switch (project) {
@@ -20,10 +19,8 @@ function Details(project: string) {
             return <VocabVersus />;
         case _projects.PodoPrinter:
             return <PodoPrinter />;
-        case _projects.AuthoreJob:
-            return <AuthoreJob />;
-        case _projects.AuthoreInternship:
-            return <AuthoreInternship />;
+        case _projects.Authore:
+            return <Authore />;
         case _projects.Jugo:
             return <Jugo />;
         case _projects.Stuurmen:
@@ -56,6 +53,7 @@ function ProjectDetails({ project, onChangeProject }: props) {
         <div className="w-100 py-5 d-flex align-items-center project-details-container">
             <div className="project-info-navigation-container">
                 <i className={`bi bi-chevron-up navigation-icon ${nextProject ? "" : "invisible"}`} onClick={() => nextProject ? onChangeProject(nextProject) : null}></i>
+                <div className="navigation-seperator"></div>
                 <i className={`bi bi-chevron-down navigation-icon ${previousProject ? "" : "invisible"}`} onClick={() => previousProject ? onChangeProject(previousProject) : null}></i>
             </div>
             <div className="project-info-border-container">

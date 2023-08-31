@@ -2,20 +2,23 @@
 import Underline from "../Underline.astro";
 const millisecondsInYear = 3.15576e10;
 const age = Math.floor(
-  (new Date().getTime() - new Date(import.meta.env.SECRET_BIRTH_DATE).getTime()) / millisecondsInYear
+  (new Date().getTime() -
+    new Date(import.meta.env.SECRET_BIRTH_DATE).getTime()) /
+    millisecondsInYear
 );
-const mailto = "mailto:"+import.meta.env.PUBLIC_EMAIL_ADDRESS ?? "";
-const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "";
+const mailto = "mailto:" + import.meta.env.PUBLIC_EMAIL_ADDRESS ?? "";
+const tel =
+  "tel:" + import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "";
 ---
 
-<div id="about-me" class="row gy-3">
+<div id="about-me" class="container-fluid row gy-3">
   <div class="ms-xl-4 col-lg-4 col-xxl-3">
-      <img
+    <img
       class="profile-picture card-shadow mt-5"
       src="/assets/profile-picture.png"
       alt="Image of Thomas van der Molen"
       id="profile-picture"
-      />
+    />
     <br />
     <Underline initialWidth="0%">
       <a href={tel}>
@@ -32,7 +35,10 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
     </Underline>
     <br />
     <Underline initialWidth="0%">
-      <a href="https://www.linkedin.com/in/thomas-van-der-molen-6427a7181/" target="_blank">
+      <a
+        href="https://www.linkedin.com/in/thomas-van-der-molen-6427a7181/"
+        target="_blank"
+      >
         <i class="bi bi-linkedin social-icon"></i>
         <span class="social-text">LinkedIn</span>
       </a>
@@ -43,24 +49,33 @@ const tel = "tel:"+import.meta.env.PUBLIC_PHONE_NUMBER?.replace(/\s+/g, "") ?? "
       <h2 class="title">About Me</h2>
       <Underline initialWidth="0">
         <a href="files/cv.pdf" download="CV_ThomasVanDerMolen" class="mb-1">
-        <i class="bi bi-download me-1"></i>download my cv</a>
+          <i class="bi bi-download me-1"></i>download my cv</a
+        >
       </Underline>
     </div>
     <hr class="mt-0" />
     <div class="about-me-text">
       <p>
-        My name is <b>Thomas Van der Molen</b> and I am a {age} year old student at the
-        <a href="https://fontys.edu/" target="_blank">Fontys University of Applied Sciences</a>, where I am studying for a double mayor in <b>Software Engineering</b> & <b>Artificial Inteligence</b>.
+        My name is <b>Thomas Van der Molen</b> and I am a {age} year old student
+        at the
+        <a href="https://fontys.edu/" target="_blank"
+          >Fontys University of Applied Sciences</a
+        >, where I am studying for a double mayor in <b>Software Engineering</b>
+        & <b>Artificial Inteligence</b>.
       </p>
       <p>
-        Throughout recent years, I have gained valuable hands-on experience collaborating with small and large businesses alike.<br />
-        This journey has allowed me to successfully investigate and execute projects in a large variety of domains,
-        together with other like-minded enthousiastic people.
+        Throughout recent years, I have gained valuable hands-on experience
+        collaborating with small and large businesses alike.<br />
+        This journey has allowed me to successfully investigate and execute projects
+        in a large variety of domains, together with other like-minded enthousiastic
+        people.
       </p>
       <p>
-        I have gained extensive experience in developing business-oriented solutions with a focus on scalability and maintainability.
-        My expertise lies primarily within the realm of web solutions, 
-        encompassing the development of full-stack applications, including robust DevOps pipelines and seamless Cloud integrations.
+        I have gained extensive experience in developing business-oriented
+        solutions with a focus on scalability and maintainability. My expertise
+        lies primarily within the realm of web solutions, encompassing the
+        development of full-stack applications, including robust DevOps
+        pipelines and seamless Cloud integrations.
       </p>
     </div>
     <h3>Some companies I have worked with</h3>

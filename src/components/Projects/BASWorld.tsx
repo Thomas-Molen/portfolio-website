@@ -9,16 +9,14 @@ function BASWorld() {
             </div>
             <hr className="my-0" />
             <div className="my-1 mb-2 row row-cols-auto gx-1">
-                <div className="col">
-                    <Technology image="laravel.png" alt="Laravel" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="mysql.png" alt="MySQL" className="technology-image" />
-                </div>
+                <Technology image="laravel.png" alt="Laravel" />
+                <Technology image="mysql.png" alt="MySQL" />
                 <span className="note">
                     *Technology info limited due to Non-Disclosure Agreements.
                 </span>
             </div>
+            <p className="project-intro">
+            </p>
             <p>
             </p>
         </>

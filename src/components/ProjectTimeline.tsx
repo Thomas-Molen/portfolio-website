@@ -3,14 +3,12 @@ import { Gitgraph, templateExtend, TemplateName, Mode, MergeStyle, Orientation }
 import './ProjectTimeline.css'
 import type { Commit } from '@gitgraph/core';
 import type { ReactSvgElement } from '@sugarypineapple/gitgraph-react/lib/types';
-import { ProjectColors } from '@utility/colors';
-import { Projects as _projects } from '@utility/projects'
+import { Projects as _projects, ProjectColor } from '@utility/projects'
 import Skeleton from 'react-loading-skeleton'
 
 const defaultProject = "VocabVersus"
 const template = templateExtend(TemplateName.Metro, {
     branch: { label: { display: false }, spacing: 30, mergeStyle: MergeStyle.Bezier },
-    colors: ProjectColors,
     commit: {
         spacing: 35,
         message: {
@@ -62,6 +60,30 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
         }
     };
 
+    function CreateBranchSettings(name: string, color: string)
+    {
+        return {
+            name: name,
+            style: {
+              color: color,
+              label: {
+                strokeColor: color
+              }
+            },
+            commitDefaultOptions: {
+              style: {
+                color: color,
+                message: {
+                  color: color
+                },
+                dot: {
+                  color: color
+                }
+              }
+            }
+          }
+    }
+
     return (
         <Gitgraph options={
             {
@@ -71,7 +93,7 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
             }
         } key={placeholder ? "placeholder" : selectedProject}>
             {(gitgraph) => {
-                const master = gitgraph.branch("master");
+                const master = gitgraph.branch(CreateBranchSettings("master", "grey"));
                 master.commit({
                     subject: "Start",
                     renderDot: empty,
@@ -84,8 +106,8 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                     renderDot: empty
                 })
                 // BasWorld project
-                const BASWorld = master.branch("BAS World").commit({ renderDot: commit => selector(commit) }).tag(_projects.BASWorld);
-                const GameEngine = master.branch("Game Engine").commit({ renderDot: commit => selector(commit) }).tag(_projects.GameEninge);
+                const BASWorld = master.branch(CreateBranchSettings("BAS World", ProjectColor(_projects.BASWorld))).commit({ renderDot: commit => selector(commit) }).tag(_projects.BASWorld);
+                const GameEngine = master.branch(CreateBranchSettings("Game Engine", ProjectColor(_projects.GameEninge))).commit({ renderDot: commit => selector(commit) }).tag(_projects.GameEninge);
                 // Sugary Engine project
                 master.merge({ branch: BASWorld, commitOptions: { renderMessage: empty, renderDot: empty } });
                 master.merge({ branch: GameEngine, commitOptions: { renderMessage: empty, renderDot: empty } });
@@ -94,8 +116,8 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                     subject: "Semester 3",
                     renderDot: empty
                 })
-                const WebAdventure = master.branch("WebAdventure");
-                const Stuurmen = master.branch("Stuurmen");
+                const WebAdventure = master.branch(CreateBranchSettings("WebAdventure", ProjectColor(_projects.WebAdventure)));
+                const Stuurmen = master.branch(CreateBranchSettings("Stuurmen", ProjectColor(_projects.Stuurmen)));
                 // WebAdventure project
                 WebAdventure.commit({ renderDot: commit => selector(commit) }).tag(_projects.WebAdventure);
                 // Stuurmen project
@@ -106,16 +128,14 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                 master.merge({ branch: WebAdventure, commitOptions: { renderMessage: empty, renderDot: empty } });
                 master.merge({ branch: Stuurmen, commitOptions: { renderMessage: empty, renderDot: empty } });
                 master.commit({ subject: "Semester 4", renderDot: empty })
-                const Jugo = master.branch("Jugo");
+                const Jugo = master.branch(CreateBranchSettings("Jugo", ProjectColor(_projects.Jugo)));
                 // Jugo project
                 Jugo.commit({ renderDot: commit => selector(commit) }).tag(_projects.Jugo);
                 master.merge({ branch: Jugo, commitOptions: { renderMessage: empty, renderDot: empty } });
                 master.commit({ subject: "Semester 5", renderDot: empty })
-                const Authore = master.branch("Author-e");
-                // Author-e Internship project
-                Authore.commit({ renderDot: commit => selector(commit) }).tag(_projects.AuthoreInternship);
-                // Author-e Job project
-                Authore.commit({ renderDot: commit => selector(commit) }).tag(_projects.AuthoreJob);
+                const Authore = master.branch(CreateBranchSettings("Author-e", ProjectColor(_projects.Authore)));
+                // Author-e projects
+                Authore.commit({ renderDot: commit => selector(commit) }).tag(_projects.Authore);
 
                 //2023
                 master.commit({ renderDot: baseCircle }).tag("2023");
@@ -124,8 +144,8 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                     subject: "Semester 6",
                     renderDot: empty
                 })
-                const VocabVersus = WebAdventure.branch("VocabVersus");
-                const PodoPrinter = master.branch("PodoPrinter");
+                const VocabVersus = WebAdventure.branch(CreateBranchSettings("VocabVersus", ProjectColor(_projects.VocabVersus)));
+                const PodoPrinter = master.branch(CreateBranchSettings("PodoPrinter", ProjectColor(_projects.PodoPrinter)));
                 // PodoPrinter project
                 PodoPrinter.commit({ renderDot: commit => selector(commit) }).tag(_projects.PodoPrinter);
                 // VocabVersus project
@@ -135,7 +155,7 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
 
                 master.commit({ subject: "Vacation Semester6-7", renderDot: empty })
 
-                const Portfolio = master.branch("Portfolio");
+                const Portfolio = master.branch(CreateBranchSettings("Portfolio", ProjectColor(_projects.Portfolio)));
                 Portfolio.commit({ renderDot: commit => selector(commit) }).tag(_projects.Portfolio);
 
                 Portfolio.commit({

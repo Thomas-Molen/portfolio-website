@@ -9,25 +9,15 @@ function Stuurmen() {
             </div>
             <hr className="my-0" />
             <div className="my-1 mb-2 row row-cols-auto gx-1">
-                <div className="col">
-                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="react.png" alt="React" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="cypress.png" alt="Cypress" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="sql-server.png" alt="SQL Server" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="azure.png" alt="Azure" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="netlify.png" alt="Netlify" className="technology-image" />
-                </div>
+                <Technology image="dot-net.png" alt=".NET" />
+                <Technology image="react.png" alt="React" />
+                <Technology image="cypress.png" alt="Cypress" />
+                <Technology image="sql-server.png" alt="SQL Server" />
+                <Technology image="azure.png" alt="Azure" />
+                <Technology image="netlify.png" alt="Netlify" />
             </div>
+            <p className="project-intro">
+            </p>
             <p>
             </p>
         </>

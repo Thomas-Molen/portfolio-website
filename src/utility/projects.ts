@@ -1,15 +1,41 @@
 export enum Projects {
     BASWorld = "BAS World",
     GameEninge = "Game Engine",
-    WebAdventure = "Web Adventure",
+    WebAdventure = "WebAdventure",
     Stuurmen = "Stuurmen",
     Jugo = "Jugo",
-    AuthoreInternship = "Author-e Internship",
-    AuthoreJob = "Author-e Job",
+    Authore = "Author-e",
     PodoPrinter = "PodoPrinter",
-    VocabVersus = "Vocab Versus",
+    VocabVersus = "VocabVersus",
     Portfolio = "Portfolio",
 }
+
+export function ProjectColor(project: string)
+{
+    switch(project){
+        case Projects.BASWorld:
+            return "#4B4477";
+            case Projects.GameEninge:
+            return "#447746";
+            case Projects.WebAdventure:
+            return "#776644";
+            case Projects.Stuurmen:
+            return "#5D9B9B";
+            case Projects.Jugo:
+            return "#774460";
+            case Projects.Authore:
+            return "#447777";
+            case Projects.PodoPrinter:
+                return "#457744";
+            case Projects.VocabVersus:
+                return "#6A7744";
+            case Projects.Portfolio:
+                return "#924E7D";
+            default:
+                return "#FFFFFF";
+    }
+}
+
 
 const projects: string[] = Object.values(Projects);
 export function PreviousProject(target: string): string | null {

@@ -1,14 +1,23 @@
-.technology-image {
-    aspect-ratio: 1/1;
-    width: 100%;
-    max-width: 40px;
-    transition: transform 1s, box-shadow 1.5s;
-  }
+.project-intro{
+  font-size: 1.25rem;
+}
 
-  .project-intro{
-    font-size: 1.25rem;
-  }
+.note {
+  font-size: 0.8rem;
+}
 
-  .note {
-    font-size: 0.8rem;
-  }
+.project-info-container hr{
+  color: transparent;
+  background: linear-gradient(to right, var(--project-color) 70%, white 85%);
+  filter: brightness(2);
+  height: 2px;
+}
+
+.project-info-container h3{
+  background: var(--project-color);
+  border-radius: 3px;
+  padding: 3px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 0.25rem
+}

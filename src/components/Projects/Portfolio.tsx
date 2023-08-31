@@ -12,25 +12,15 @@ function Portfolio() {
             </div>
             <hr className="my-0" />
             <div className="my-1 mb-2 row row-cols-auto gx-1">
-                <div className="col">
-                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="astro.png" alt="Astro" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="react.png" alt="React" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="redis.png" alt="Redis" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="azure.png" alt="Azure" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="vercel.png" alt="Vercel" className="technology-image" />
-                </div>
+                <Technology image="dot-net.png" alt=".NET" />
+                <Technology image="astro.png" alt="Astro" />
+                <Technology image="react.png" alt="React" />
+                <Technology image="redis.png" alt="Redis" />
+                <Technology image="azure.png" alt="Azure" />
+                <Technology image="vercel.png" alt="Vercel" />
             </div>
+            <p className="project-intro">
+            </p>
             <p>
             </p>
         </>

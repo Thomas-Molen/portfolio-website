@@ -13,33 +13,15 @@ function VocabVersus() {
             </div>
             <hr className="my-0" />
             <div className="my-1 mb-2 row row-cols-auto gx-1">
-                <div className="col">
-                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="astro.png" alt="Astro" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="react.png" alt="React" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="vite.png" alt="Vite" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="lucene.png" alt="Lucene" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="signal-r.png" alt="SignalR" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="azure.png" alt="Azure" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="vercel.png" alt="Vercel" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="docker.png" alt="Docker" className="technology-image" />
-                </div>
+                    <Technology image="dot-net.png" alt=".NET" />
+                    <Technology image="astro.png" alt="Astro" />
+                    <Technology image="react.png" alt="React" />
+                    <Technology image="vite.png" alt="Vite" />
+                    <Technology image="lucene.png" alt="Lucene" />
+                    <Technology image="signal-r.png" alt="SignalR" />
+                    <Technology image="azure.png" alt="Azure" />
+                    <Technology image="vercel.png" alt="Vercel" />
+                    <Technology image="docker.png" alt="Docker" />
             </div>
             <p className="project-intro">
                 VocabVersus is a web-based multiplayer vocabulary game.

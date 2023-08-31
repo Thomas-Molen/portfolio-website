@@ -9,31 +9,17 @@ function PodoPrinter() {
             </div>
             <hr className="my-0" />
             <div className="my-1 mb-2 row row-cols-auto gx-1">
-                <div className="col">
-                    <Technology image="dot-net.png" alt=".NET" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="fast-api.png" alt="Python Fast API" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="react.png" alt="React" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="vite.png" alt="Vite" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="vitest.png" alt="Vitest" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="cura.png" alt="Cura Engine" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="azure.png" alt="Azure" className="technology-image" />
-                </div>
-                <div className="col">
-                    <Technology image="docker.png" alt="Docker" className="technology-image" />
-                </div>
+                <Technology image="dot-net.png" alt=".NET" />
+                <Technology image="fast-api.png" alt="Python Fast API" />
+                <Technology image="react.png" alt="React" />
+                <Technology image="vite.png" alt="Vite" />
+                <Technology image="vitest.png" alt="Vitest" />
+                <Technology image="cura.png" alt="Cura Engine" />
+                <Technology image="azure.png" alt="Azure" />
+                <Technology image="docker.png" alt="Docker" />
             </div>
+            <p className="project-intro">
+            </p>
             <p>
             </p>
         </>

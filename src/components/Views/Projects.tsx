@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ProjectTimeline from "../ProjectTimeline";
-import { Projects as _projects } from "@utility/projects";
+import { ProjectColor, Projects as _projects } from "@utility/projects";
 import ProjectDetails from "../ProjectDetails";
 import Skeleton from "react-loading-skeleton";
 import "./Projects.css"
@@ -35,9 +35,9 @@ function Projects() {
     }, []);
 
     return (
-        <div id="projects" className="container-fluid py-5">
+        <div id="projects" className="container-fluid py-5" style={{ "--project-color": ProjectColor(currentProject) } as React.CSSProperties}>
             <div className="row h-100">
-                <div className="d-flex align-items-center col-12 offset-lg-1 col-lg-6 col-xl-6">
+                <div className="d-flex align-items-center col-12 ms-lg-5 col-lg-6 col-xl-6">
                     {obtainingQueryProject ?
                         <Skeleton width="100%" height="100%" baseColor="transparent" containerClassName="project-skeleton" />
                         :
