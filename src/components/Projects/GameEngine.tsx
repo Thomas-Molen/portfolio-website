@@ -18,9 +18,11 @@ function GameEninge() {
                 <Technology image="mysql.png" alt="MySQL" />
             </div>
             <p className="project-intro">
+                Game Engine, including direct web application connection with accompanying Proof of Concept speedrun game.
             </p>
-            <p>
-            </p>
+            <p>I undertook an exciting project involving the development of a game engine and proof of concept speedrunning game using MonoGame. This project also featured direct integration with a web application that offered automatically updating leaderboards for tracking completion times directly from the game.</p>
+            <p>This project served as a valuable opportunity for me to gain experience in building large, complex, and multi-disciplinary spanning projects. Utilizing frameworks such as MonoGame and Laravel to build up a featureful game (engine) and web application in a short amount of time.</p>
+            <p>The integration with the web application provided insights into real-time data synchronization and user interaction, keeping user experience in mind while also ensuring security.</p>
         </>
     );
 }
