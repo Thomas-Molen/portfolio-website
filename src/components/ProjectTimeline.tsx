@@ -190,7 +190,7 @@ function ProjectTimeline({ selectedProject, onSetProject }: projectTimelineProps
             {isLoading && (
                 <Skeleton width="400px" height="800px" baseColor="transparent" />
             )}
-            <div className={`${isLoading && "d-none"}`}>
+            <div className={`${isLoading ? "d-none" : ""}`}>
                 <div className="graph" style={{ zIndex: "0" }}>
                     <Graph selectedProject={selectedProject} onSetProject={onSetProject} placeholder />
                 </div>
