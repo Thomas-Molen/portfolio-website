@@ -17,9 +17,12 @@ function Stuurmen() {
                 <Technology image="netlify.png" alt="Netlify" />
             </div>
             <p className="project-intro">
+                Fully automated license mangement system for selling plugins of popular design tools.
             </p>
-            <p>
-            </p>
+            <p>Together with a talented team, we were challenged by Stuurmen/OneBlinq to develop an efficient licensing system tailored for their suite of design tool plugins, which could be sold seamlessly via their external webshop.</p>
+
+            <p>This specialized licensing application was designed to simplify the process of managing and delivering licenses to customers. This included a web interface, allowing both Stuurmen employees to manage and view license activity as well as offering a hub for their customers to find all Stuurmen related content.</p>
+            <p>The end result was a fully integrated and cloud hosted licensing system. This cloud-based solution ensured scalability, reliability, and future extensibility, allowing Stuurmen/OneBlinq to adapt and grow as their needs evolve. Additionally, the system was designed to efficiently manage free trials, providing a valuable tool for customer engagement and product adoption.</p>
         </>
     );
 }
