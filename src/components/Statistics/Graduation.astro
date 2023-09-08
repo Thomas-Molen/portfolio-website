@@ -23,7 +23,7 @@ const { color } = Astro.props;
 ---
 
 <div class="d-flex align-items-center">
-  <b class="me-2">{daysLeft}</b><ProgressBar
+  <b class="me-2">{daysLeft < 0 ? 0 : daysLeft}</b><ProgressBar
     color={color}
     value={graduationPercentage}
   />
