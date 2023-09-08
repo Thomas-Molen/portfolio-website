@@ -1,0 +1,15 @@
+.underline-container {
+    height: max-content;
+    width: max-content;
+    color: var(--text-color);
+    display: inline-block;
+    text-decoration: none;
+    background-image: linear-gradient(to right, var(--text-color), var(--text-color));
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: var(--initialWidth) 2px;
+    transition: background-size 0.5s ease;
+}
+.underline-container:hover {
+    background-size: 100% 2px !important;
+}

@@ -77,16 +77,16 @@ function HostingCosts({ data }: props) {
                             }
                         ]}
                         loader={
-                            <Skeleton width="100%" height="300px" baseColor="var(--card-color)" />}
+                            <Skeleton width="100%" height="300px" baseColor="transparent" />}
                     />
                 </div>
             </div>
             {/* Wide screen */}
-            <div className="col-lg-5 d-none d-md-flex align-items-center">
+            <div className="col-lg-5 d-none d-lg-flex align-items-center">
                     {HostingCostsLabels(chartData)}
             </div>
             {/* Mobile */}
-            <div className="col-lg-5 d-flex d-md-none align-items-center">
+            <div className="col-lg-5 d-flex d-lg-none align-items-center">
                 <Accordion title="Services">
                     {HostingCostsLabels(chartData)}
                 </Accordion>

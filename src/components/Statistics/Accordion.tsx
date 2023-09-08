@@ -11,9 +11,9 @@ function Accordion({ title, children }: props) {
             <div className="mb-1 pointer" onClick={() => setIsOpen(prevState => !prevState)}>
                 {isOpen ? "v" : ">"} <b>{title}</b>
             </div>
-            <hr className="mt-0 mb-1"/>
             {isOpen &&
                 <>
+                    <hr className="mt-0 mb-1" />
                     <div>
                         {children}
                     </div>

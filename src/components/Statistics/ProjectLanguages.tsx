@@ -4,10 +4,15 @@ import {LanguageColors as colors} from "@utility/colors"
 
 type LanguageData = { [language: string]: number };
 function ProcessData(data: LanguageData): (string | number | { role: string })[][] {
+    // Sort data based on value (languagebytes)
+    const orderedData: LanguageData = Object.fromEntries(
+        Object.entries(data)
+            .sort((left, right) => right[1] - left[1])
+    );
     // Parse language byte data to chart structure
     const languages: (string | number | { role: string })[][] = [
         ["Language", ""],
-        ...Object.keys(data).map((language) => [language, data[language]]),
+        ...Object.keys(orderedData).map((language) => [language, data[language]]),
         // Anything under ~100 bytes is not included, so add it as a static value for context
         ["Other", 100]
     ];
@@ -73,7 +78,7 @@ function ProjectLanguages({ data }: props) {
                 }
             ]}
             loader={
-                <Skeleton width="99%" height="300px" baseColor="var(--card-color)" />}
+                <Skeleton width="99%" height="300px" baseColor="transparent" />}
         />
     );
 }

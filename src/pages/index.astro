@@ -3,14 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import TopBar from "../components/Views/TopBar.astro";
 import Statistics from "../components/Views/Statistics.astro";
 import About from "../components/Views/About.astro";
-import Projects from "../components/Views/Projects.astro";
 import ProjectsNavigation from "../components/ProjectsNavigation.astro";
 import Footer from "../components/Views/Footer.astro";
+import Projects from "src/components/Views/Projects";
 ---
 
 <Layout title="Thomas van der Molen">
   <main class="container-fluid p-0 w-100">
-    <TopBar />
+    <div class="px-xl-5">
+      <TopBar />
+    </div>
     <br />
     <div class="statistics-wrapper px-xl-5 pt-xl-2 pb-xl-5">
       <Statistics />
@@ -20,8 +22,8 @@ import Footer from "../components/Views/Footer.astro";
       <About />
     </div>
     <div class="projects-wrapper">
-		<ProjectsNavigation />
-      <Projects />
+      <ProjectsNavigation />
+      <Projects client:visible />
     </div>
     <Footer />
   </main>
@@ -40,7 +42,7 @@ import Footer from "../components/Views/Footer.astro";
   .projects-wrapper {
     background: linear-gradient(
       0deg,
-      var(--background) 85%,
+      var(--background) 90%,
       var(--about-me-background)
     );
   }

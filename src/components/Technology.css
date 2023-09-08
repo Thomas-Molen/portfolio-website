@@ -1,0 +1,6 @@
+.technology-image {
+    aspect-ratio: 1/1;
+    width: 100%;
+    max-width: 40px;
+    transition: transform 1s, box-shadow 1.5s;
+  }

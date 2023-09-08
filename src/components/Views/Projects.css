@@ -1,0 +1,10 @@
+.project-skeleton{
+    flex: 1;
+    height: 80%;
+}
+/* Set minimum height of projects view when project timeline is visible, as this is not constraint by relative height */
+@media (min-width: 992px) {
+    #projects {
+      min-height: 900px
+    }
+  }

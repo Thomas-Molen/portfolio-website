@@ -15,6 +15,7 @@
     justify-content: center;
     bottom: 2em;
     right: 1em;
+    z-index: 10;
 
     background-color: var(--card-color);
     border-radius: 5px;
@@ -85,8 +86,8 @@
     var target = document.getElementById("projects");
     if (!target) return;
     // Check if the window has been scrolled to the projects element, or within a margin of error, currently 5%
-    // 5% will be around 50px of margin
-    if (window.scrollY*1.05 >= target.offsetTop) {
+    // 20% will be around 200px of margin
+    if (window.scrollY*1.2 >= target.offsetTop) {
       clearTimeout(delayedShowNavigator);
       hideNavigator();
       // Remove scroll event listener when not required anymore
