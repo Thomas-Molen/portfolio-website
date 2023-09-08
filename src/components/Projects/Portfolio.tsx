@@ -20,9 +20,17 @@ function Portfolio() {
                 <Technology image="vercel.png" alt="Vercel" />
             </div>
             <p className="project-intro">
+                Project history portfolio website of Thomas Van der Molen.
             </p>
             <p>
+                To showcase all the major project I have worked on during my adventures through the world of IT, I have decided to create a portfolio website where all projects can be easily accessed, as well as concisely showcasing my expertise and skills within the industry.
             </p>
+            <p>
+                The portfolio project is designed with rapid development and low hosting costs in mind. This is achieved by adopting a cloud-first methodology, utilizing cloud-agnostic tools such as serverless functions, and implementing a fully automated deployment process for the chosen cloud providers.
+            </p>
+            <i>
+                For a showcase of this project look no further than the website you are on already, as this is the portfolio project!
+            </i>
         </>
     );
 }

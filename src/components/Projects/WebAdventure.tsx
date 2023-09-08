@@ -32,7 +32,7 @@ function WebAdventure() {
             <i>
                 The homepage can be viewed&nbsp;
                 <Underline initialWidth="0">
-                    <a href="https://vocabversus.thomasmolen.com" target="_blank">here<i className="bi bi-box-arrow-up-right ms-1">*</i></a>
+                    <a href="https://webadventure.thomasmolen.com" target="_blank">here<i className="bi bi-box-arrow-up-right ms-1">*</i></a>
                 </Underline>
                 <br />
                 <span className="note">
