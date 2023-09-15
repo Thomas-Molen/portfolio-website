@@ -8,9 +8,9 @@ interface props {
 }
 function Underline({className, initialWidth = "50%", children}: props) {
     return (
-        <div className={`underline-container ${className}`} style={{backgroundSize: `${initialWidth} 2px`}}>
+        <span className={`underline-container ${className}`} style={{backgroundSize: `${initialWidth} 2px`}}>
             {children}
-        </div>
+        </span>
     );
 }
 

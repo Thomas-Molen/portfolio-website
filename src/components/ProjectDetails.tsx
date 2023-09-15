@@ -52,9 +52,13 @@ function ProjectDetails({ project, onChangeProject }: props) {
     return (
         <div className="w-100 py-5 d-flex align-items-center project-details-container">
             <div className="project-info-navigation-container">
-                <i className={`bi bi-chevron-up navigation-icon ${nextProject ? "" : "invisible"}`} onClick={() => nextProject ? onChangeProject(nextProject) : null}></i>
+                <i tabIndex={0} className={`bi bi-chevron-up navigation-icon ${nextProject ? "" : "invisible"}`} 
+                    onClick={() => nextProject ? onChangeProject(nextProject) : null}
+                    onKeyPress={(event) => (event.key == "Enter" && nextProject) ? onChangeProject(nextProject) : null }></i>
                 <div className="navigation-seperator"></div>
-                <i className={`bi bi-chevron-down navigation-icon ${previousProject ? "" : "invisible"}`} onClick={() => previousProject ? onChangeProject(previousProject) : null}></i>
+                <i tabIndex={0} className={`bi bi-chevron-down navigation-icon ${previousProject ? "" : "invisible"}`} 
+                    onClick={() => previousProject ? onChangeProject(previousProject) : null}
+                    onKeyPress={(event) => (event.key == "Enter" && previousProject) ? onChangeProject(previousProject) : null }></i>
             </div>
             <div className="project-info-border-container">
                 <div className="project-info-border"></div>
