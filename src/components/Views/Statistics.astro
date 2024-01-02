@@ -1,11 +1,15 @@
 ---
 import AccentCard from "../AccentCard.astro";
 import Card from "../Card.astro";
-import Graduation from "../Statistics/Graduation.astro";
+import Graduation from "../Statistics/Graduation";
 import LinkedInPosition from "../Statistics/LinkedInPosition.astro";
 import HostingCosts from "../Statistics/HostingCosts";
 import ProjectLanguages from "../Statistics/ProjectLanguages";
 import Underline from "../Underline.astro";
+
+// Obtain the start and end date set for education, these will be used to calculate the graduation statistics
+const start = new Date(import.meta.env.SECRET_START_EDUCATION);
+const end = new Date(import.meta.env.SECRET_GRADUATION);
 
 // Execute data fetching on the server, as to avoid exposing secrets
 // Obtain language data for project language split chart
@@ -38,7 +42,11 @@ const hostingCosts: { [service: string]: number } | null = await fetch(
       accent="#00b4d8"
       icon="calendar-fill"
     >
-      <Graduation color="#00b4d8" />
+      <Graduation  
+        start={start}
+        end={end}
+        color={"#00b4d8"}
+        client:load/>
     </AccentCard>
   </div>
   <div class="col">

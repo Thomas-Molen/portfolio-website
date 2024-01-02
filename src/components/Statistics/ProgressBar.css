@@ -1,0 +1,19 @@
+.progress-bar {
+    height: 10px;
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 5px;
+  }
+  .progress-bar .progress {
+    height: 100%;
+    /* width: 0; */
+    /* animation: progressAnimation 3s forwards; */
+    width: var(--progressPercentage);
+    background-color: var(--progressColor);
+    border-radius: 5px 0px 0px 5px;
+  }
+  @keyframes progressAnimation {
+    to {
+      width: var(--progressPercentage); /* Set the final width here (in this case, 100px) */
+    }
+  }
