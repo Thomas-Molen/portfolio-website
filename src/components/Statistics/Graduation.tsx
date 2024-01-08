@@ -9,7 +9,10 @@ function Graduation({ start, end, color }: props) {
     // Calculate the total milisecond range of start and end
     const range = end.getTime() - start.getTime();
     // Calculate the current progress in miliseconds
-    const progress = new Date().getTime() - start.getTime();
+    // Get the currentDate and reset the time section as to avoid possible server vs client hydration inconsistencies
+    const currentDate = new Date()
+    currentDate.setHours(0, 0, 0, 0)
+    const progress = currentDate.getTime() - start.getTime();
     // Convert current progress to %
     const graduationPercentage = ((progress / range) * 100) + "%";
 
