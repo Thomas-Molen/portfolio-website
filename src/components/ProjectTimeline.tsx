@@ -187,10 +187,8 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                 //2023
                 master.commit({ renderDot: baseCircle }).tag({ name: "2023", render: DateTag });
 
-                master.commit({
-                    subject: "Semester 6",
-                    renderDot: empty
-                })
+                master.commit({subject: "Semester 6", renderDot: empty})
+
                 const VocabVersus = WebAdventure.branch(CreateBranchSettings("VocabVersus", ProjectColor(_projects.VocabVersus)));
                 const PodoPrinter = master.branch(CreateBranchSettings("PodoPrinter", ProjectColor(_projects.PodoPrinter)));
                 // PodoPrinter project
@@ -201,22 +199,32 @@ function Graph({ selectedProject, onSetProject, placeholder = false }: graphProp
                 master.merge({ branch: PodoPrinter, commitOptions: { renderMessage: empty, renderDot: empty } });
 
                 master.commit({ subject: "Vacation Semester6-7", renderDot: empty })
-
+                
                 const Portfolio = master.branch(CreateBranchSettings("Portfolio", ProjectColor(_projects.Portfolio)));
                 Portfolio.commit({ renderDot: commit => selector(commit) }).tag({ name: _projects.Portfolio, render: projectTag });
+                
+                master.commit({ subject: "Semester 7", renderDot: empty })
+                // SUE project
+                const SUE = master.branch(CreateBranchSettings("SUE", ProjectColor(_projects.SUE)));
+                SUE.commit({ renderDot: commit => selector(commit) }).tag({ name: _projects.SUE, render: projectTag }); // TODO: Add SUE description
 
-                Portfolio.commit({
-                    subject: "Ongoing",
-                    renderDot: empty
-                });
-                Authore.commit({
-                    subject: "Ongoing",
-                    renderDot: empty
-                });
-                master.commit({
-                    subject: "Ongoing",
-                    renderDot: empty
-                });
+                // 2024
+                master.commit({ renderDot: baseCircle }).tag({ name: "2024", render: DateTag });
+
+                master.merge({ branch: Portfolio, commitOptions: { renderMessage: empty, renderDot: empty } });
+                master.merge({ branch: SUE, commitOptions: { renderMessage: empty, renderDot: empty } });
+                master.merge({ branch: Authore, commitOptions: { renderMessage: empty, renderDot: empty } });
+
+                // Info Support projects
+                const InfoSupport = master.branch(CreateBranchSettings("Info Support", ProjectColor(_projects.InfoSupport)));
+                InfoSupport.commit({ renderDot: empty }).tag({ name: _projects.InfoSupport, render: projectTag }); // TODO: Add Info Support description
+                
+                // Graduation Fontys
+
+                // Today
+                InfoSupport.commit({subject: "Ongoing", renderDot: empty });
+
+                master.commit({subject: "Ongoing", renderDot: empty });
             }}
         </Gitgraph>
     );

@@ -10,6 +10,8 @@ import WebAdventure from '@projects/WebAdventure';
 import GameEninge from '@projects/GameEngine';
 import BASWorld from '@projects/BASWorld';
 import Authore from '@projects/Authore';
+import SUE from '@projects/SUE';
+import InfoSupport from '@projects/Info Support';
 
 function Details(project: string) {
     switch (project) {
@@ -31,6 +33,10 @@ function Details(project: string) {
             return <GameEninge />;
         case _projects.BASWorld:
             return <BASWorld />;
+        case _projects.SUE:
+            return <SUE />;
+        case _projects.InfoSupport:
+            return <InfoSupport />;
         default:
             return (<></>);
     }

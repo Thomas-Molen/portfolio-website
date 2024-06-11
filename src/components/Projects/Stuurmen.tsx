@@ -17,7 +17,7 @@ function Stuurmen() {
                 <Technology image="netlify.png" alt="Netlify" />
             </div>
             <p className="project-intro">
-                Fully automated license mangement system for selling plugins of popular design tools.
+                Fully automated license management system for selling plugins of popular design tools.
             </p>
             <p>Together with a talented team, we were challenged by Stuurmen/OneBlinq to develop an efficient licensing system tailored for their suite of design tool plugins, which could be sold seamlessly via their external webshop.</p>
 
